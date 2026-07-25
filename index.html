@@ -1,22 +1,1315 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Tilgear UI Prototype</title><link rel="stylesheet" href="css/style.css"></head>
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tilgear | Educational Materials for Creative Learning</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
 <body>
-<header class="top"><div class="container bar"><div class="logo">TILGEAR</div><input class="search" placeholder="Search 7,000+ educational products"><a class="btn">Basket</a></div>
-<nav class="container nav"><a>Art</a><a>Craft</a><a>Laser</a><a>Acrylic</a><a>Wood</a><a>Science</a><a>Storage</a><a>Offers</a></nav></header>
+
+<header class="site-header">
+
+    <div class="announcement-bar">
+        <p>Trusted by Schools, Colleges & Universities throughout the UK</p>
+    </div>
+
+    <div class="header-main page-width">
+
+        <a href="#" class="site-logo">
+            <img src="images/logo.svg" alt="Tilgear">
+        </a>
+
+        <form class="site-search">
+
+            <input
+                type="text"
+                placeholder="Search over 7,000 educational products">
+
+            <button type="submit">
+                Search
+            </button>
+
+        </form>
+
+        <div class="header-actions">
+
+            <a href="#">
+                Account
+            </a>
+
+            <a href="#">
+                Basket
+            </a>
+
+        </div>
+
+    </div>
+
+    <nav class="main-navigation">
+
+        <div class="page-width">
+
+            <ul class="navigation-menu">
+
+                <li><a href="#">Art Materials</a></li>
+
+                <li><a href="#">Craft</a></li>
+
+                <li class="has-mega-menu">
+
+                    <a href="#">Laser Materials</a>
+
+                    <div class="mega-menu">
+
+                        <div class="mega-column">
+
+                            <h3>Sheet Materials</h3>
+
+                            <a href="#">Acrylic</a>
+                            <a href="#">Plywood</a>
+                            <a href="#">MDF</a>
+                            <a href="#">Foamboard</a>
+
+                        </div>
+
+                        <div class="mega-column">
+
+                            <h3>Laser Consumables</h3>
+
+                            <a href="#">Masking</a>
+                            <a href="#">Cleaning</a>
+                            <a href="#">Adhesives</a>
+
+                        </div>
+
+                        <div class="mega-column">
+
+                            <h3>Featured</h3>
+
+                            <img src="images/menu-laser.jpg"
+                                 alt="Laser Materials">
+
+                            <p>
+                                Everything needed for laser cutting,
+                                engraving and model making.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li><a href="#">Woodworking</a></li>
+
+                <li><a href="#">Science</a></li>
+
+                <li><a href="#">Storage</a></li>
+
+                <li><a href="#">Furniture</a></li>
+
+                <li><a href="#">Special Offers</a></li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+</header>
+
 <main>
-<section class="hero container"><div><h1>Educational materials for makers, teachers & technicians</h1><p>Trusted supplier of art, craft, laser and workshop materials.</p><a class="btn">Browse Categories</a></div><img src="https://tilgear.info/media/logo/stores/1/logo.png" alt=""></section>
-<section class="container"><h2>Popular Categories</h2><div class="grid">
-<div class="card"><h3>Acrylic Sheets</h3><p>Cast & extruded sheets.</p></div>
-<div class="card"><h3>Laser Materials</h3><p>Plywood, MDF and more.</p></div>
-<div class="card"><h3>Art Supplies</h3><p>Paints, brushes and media.</p></div>
-<div class="card"><h3>Classroom</h3><p>Essentials for education.</p></div>
-</div></section>
-<section class="container"><h2>Featured Products</h2><div class="products">
-<div class="product"><div class="ph"></div><h3>Clear Acrylic Sheet</h3><p>From £9.99</p><button>Add to Basket</button></div>
-<div class="product"><div class="ph"></div><h3>Laser Plywood</h3><p>From £5.99</p><button>Add to Basket</button></div>
-<div class="product"><div class="ph"></div><h3>PVA Glue</h3><p>From £2.99</p><button>Add to Basket</button></div>
-<div class="product"><div class="ph"></div><h3>Foam Board</h3><p>From £3.49</p><button>Add to Basket</button></div>
-</div></section>
-<section class="why"><div class="container grid"><div><h3>Education Specialists</h3></div><div><h3>Fast UK Delivery</h3></div><div><h3>Trade Accounts</h3></div><div><h3>7,000+ Products</h3></div></div></section>
-</main><footer><div class="container">Prototype homepage for discussion.</div></footer></body></html>
+
+<section class="hero-section">
+
+    <div class="page-width hero-layout">
+
+        <div class="hero-content">
+
+            <p class="hero-tagline">
+
+                Educational Materials for Creative Learning
+
+            </p>
+
+            <h1>
+
+                Everything your classroom,
+                workshop and design studio needs.
+
+            </h1>
+
+            <p class="hero-description">
+
+                Discover over 7,000 carefully selected products
+                for Art, Design Technology, Laser Cutting,
+                Engineering, Craft and Education.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#" class="button button-primary">
+
+                    Browse Categories
+
+                </a>
+
+                <a href="#" class="button button-secondary">
+
+                    View Best Sellers
+
+                </a>
+
+            </div>
+
+            <ul class="hero-highlights">
+
+                <li>✔ Trusted Education Supplier</li>
+                <li>✔ Trade Accounts Available</li>
+                <li>✔ Fast UK Delivery</li>
+
+            </ul>
+
+        </div>
+
+        <div class="hero-image">
+
+            <img src="images/hero-classroom.jpg"
+                 alt="Creative classroom">
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="quick-categories">
+
+    <div class="page-width">
+
+        <header class="section-heading">
+
+            <h2>Shop Popular Categories</h2>
+
+            <p>
+                Explore our most popular departments.
+            </p>
+
+        </header>
+
+        <div class="category-grid">
+
+            <article class="category-card">
+
+                <img src="images/category-acrylic.jpg">
+
+                <h3>Acrylic Sheets</h3>
+
+                <p>
+                    Cast, Extruded, Fluorescent,
+                    Mirrored and Coloured Acrylic.
+                </p>
+
+            </article>
+
+            <article class="category-card">
+
+                <img src="images/category-laser.jpg">
+
+                <h3>Laser Materials</h3>
+
+                <p>
+                    MDF, Birch Plywood,
+                    Veneers and Model Making.
+                </p>
+
+            </article>
+
+            <article class="category-card">
+
+                <img src="images/category-art.jpg">
+
+                <h3>Art Materials</h3>
+
+                <p>
+                    Paints, Brushes,
+                    Paper and Drawing Equipment.
+                </p>
+
+            </article>
+
+            <article class="category-card">
+
+                <img src="images/category-workshop.jpg">
+
+                <h3>Workshop</h3>
+
+                <p>
+                    Woodworking,
+                    Engineering and DT.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     FEATURED COLLECTIONS
+========================================================== -->
+
+<section class="featured-collections">
+
+    <div class="page-width">
+
+        <header class="section-heading">
+
+            <h2>Explore Our Most Popular Collections</h2>
+
+            <p>
+
+                Carefully selected ranges for schools,
+                colleges, universities and makers.
+
+            </p>
+
+        </header>
+
+        <div class="collection-grid">
+
+            <article class="collection-card collection-large">
+
+                <img src="images/collection-acrylic.jpg"
+                     alt="Acrylic Sheets">
+
+                <div class="collection-content">
+
+                    <span class="collection-label">
+
+                        Most Popular
+
+                    </span>
+
+                    <h3>
+
+                        Acrylic Sheets
+
+                    </h3>
+
+                    <p>
+
+                        Cast, extruded, mirrored,
+                        fluorescent and recycled acrylic.
+
+                    </p>
+
+                    <a href="#">
+
+                        Shop Acrylic →
+
+                    </a>
+
+                </div>
+
+            </article>
+
+            <article class="collection-card">
+
+                <img src="images/collection-laser.jpg"
+                     alt="Laser Materials">
+
+                <div class="collection-content">
+
+                    <span class="collection-label">
+
+                        Design Technology
+
+                    </span>
+
+                    <h3>
+
+                        Laser Materials
+
+                    </h3>
+
+                    <p>
+
+                        Everything for laser cutting
+                        and model making.
+
+                    </p>
+
+                    <a href="#">
+
+                        Browse Range →
+
+                    </a>
+
+                </div>
+
+            </article>
+
+            <article class="collection-card">
+
+                <img src="images/collection-art.jpg"
+                     alt="Art Materials">
+
+                <div class="collection-content">
+
+                    <span class="collection-label">
+
+                        Creative Learning
+
+                    </span>
+
+                    <h3>
+
+                        Art Materials
+
+                    </h3>
+
+                    <p>
+
+                        Paints, brushes, paper,
+                        inks and classroom essentials.
+
+                    </p>
+
+                    <a href="#">
+
+                        Discover More →
+
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     FEATURED PRODUCTS
+========================================================== -->
+
+<section class="featured-products">
+
+    <div class="page-width">
+
+        <header class="section-heading">
+
+            <h2>Featured Products</h2>
+
+            <p>
+
+                Popular choices from across the Tilgear range.
+
+            </p>
+
+        </header>
+
+        <div class="product-grid">
+
+            <article class="product-card">
+
+                <div class="product-image">
+
+                    <img src="images/product-acrylic.jpg"
+                         alt="Clear Acrylic Sheet">
+
+                </div>
+
+                <div class="product-content">
+
+                    <span class="product-brand">
+
+                        Tilgear
+
+                    </span>
+
+                    <h3>
+
+                        Clear Cast Acrylic Sheet
+                        600 × 400 mm
+
+                    </h3>
+
+                    <p class="product-price">
+
+                        From £8.95
+
+                    </p>
+
+                    <p class="product-stock">
+
+                        ✔ In Stock
+
+                    </p>
+
+                    <a href="#"
+                       class="button button-primary">
+
+                        Add to Basket
+
+                    </a>
+
+                </div>
+
+            </article>
+
+            <article class="product-card">
+
+                <div class="product-image">
+
+                    <img src="images/product-plywood.jpg"
+                         alt="Laser Plywood">
+
+                </div>
+
+                <div class="product-content">
+
+                    <span class="product-brand">
+
+                        Tilgear
+
+                    </span>
+
+                    <h3>
+
+                        Laser Birch Plywood
+
+                    </h3>
+
+                    <p class="product-price">
+
+                        From £4.99
+
+                    </p>
+
+                    <p class="product-stock">
+
+                        ✔ In Stock
+
+                    </p>
+
+                    <a href="#"
+                       class="button button-primary">
+
+                        Add to Basket
+
+                    </a>
+
+                </div>
+
+            </article>
+
+            <article class="product-card">
+
+                <div class="product-image">
+
+                    <img src="images/product-glue.jpg"
+                         alt="PVA Glue">
+
+                </div>
+
+                <div class="product-content">
+
+                    <span class="product-brand">
+
+                        Evostik
+
+                    </span>
+
+                    <h3>
+
+                        PVA Wood Adhesive
+
+                    </h3>
+
+                    <p class="product-price">
+
+                        £3.95
+
+                    </p>
+
+                    <p class="product-stock">
+
+                        ✔ In Stock
+
+                    </p>
+
+                    <a href="#"
+                       class="button button-primary">
+
+                        Add to Basket
+
+                    </a>
+
+                </div>
+
+            </article>
+
+            <article class="product-card">
+
+                <div class="product-image">
+
+                    <img src="images/product-foamboard.jpg"
+                         alt="Foamboard">
+
+                </div>
+
+                <div class="product-content">
+
+                    <span class="product-brand">
+
+                        Tilgear
+
+                    </span>
+
+                    <h3>
+
+                        White Foamboard
+
+                    </h3>
+
+                    <p class="product-price">
+
+                        From £2.95
+
+                    </p>
+
+                    <p class="product-stock">
+
+                        ✔ In Stock
+
+                    </p>
+
+                    <a href="#"
+                       class="button button-primary">
+
+                        Add to Basket
+
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     WHY CHOOSE TILGEAR
+========================================================== -->
+
+<section class="why-tilgear">
+
+    <div class="page-width">
+
+        <header class="section-heading">
+
+            <h2>
+
+                Why Schools Choose Tilgear
+
+            </h2>
+
+        </header>
+
+        <div class="benefits-grid">
+
+            <article class="benefit-card">
+
+                <div class="benefit-icon">
+
+                    🎓
+
+                </div>
+
+                <h3>
+
+                    Education Specialists
+
+                </h3>
+
+                <p>
+
+                    Supplying schools,
+                    colleges and universities
+                    for decades.
+
+                </p>
+
+            </article>
+
+            <article class="benefit-card">
+
+                <div class="benefit-icon">
+
+                    🚚
+
+                </div>
+
+                <h3>
+
+                    Fast UK Delivery
+
+                </h3>
+
+                <p>
+
+                    Large stock holdings
+                    with rapid dispatch.
+
+                </p>
+
+            </article>
+
+            <article class="benefit-card">
+
+                <div class="benefit-icon">
+
+                    📦
+
+                </div>
+
+                <h3>
+
+                    7,000+ Products
+
+                </h3>
+
+                <p>
+
+                    Everything from classroom
+                    art supplies to engineering materials.
+
+                </p>
+
+            </article>
+
+            <article class="benefit-card">
+
+                <div class="benefit-icon">
+
+                    💬
+
+                </div>
+
+                <h3>
+
+                    Expert Advice
+
+                </h3>
+
+                <p>
+
+                    Friendly support from
+                    people who understand education.
+
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     IDEAS & INSPIRATION
+========================================================== -->
+
+<section class="ideas-section">
+
+    <div class="page-width">
+
+        <header class="section-heading">
+
+            <h2>
+
+                Ideas & Inspiration
+
+            </h2>
+
+            <p>
+
+                Discover projects, classroom ideas,
+                buying guides and teaching resources.
+
+            </p>
+
+        </header>
+
+        <div class="ideas-grid">
+
+            <article class="idea-card idea-feature">
+
+                <img src="images/ideas-laser.jpg"
+                     alt="Laser Cut Projects">
+
+                <div class="idea-content">
+
+                    <span class="idea-category">
+
+                        Design Technology
+
+                    </span>
+
+                    <h3>
+
+                        10 Amazing Classroom
+                        Laser Cutting Projects
+
+                    </h3>
+
+                    <p>
+
+                        Creative ideas suitable for
+                        KS3, GCSE and A-Level.
+
+                    </p>
+
+                    <a href="#">
+
+                        Read Article →
+
+                    </a>
+
+                </div>
+
+            </article>
+
+            <article class="idea-card">
+
+                <img src="images/ideas-acrylic.jpg">
+
+                <div class="idea-content">
+
+                    <span class="idea-category">
+
+                        Buying Guide
+
+                    </span>
+
+                    <h3>
+
+                        Choosing the Right Acrylic
+
+                    </h3>
+
+                    <a href="#">
+
+                        Learn More →
+
+                    </a>
+
+                </div>
+
+            </article>
+
+            <article class="idea-card">
+
+                <img src="images/ideas-art.jpg">
+
+                <div class="idea-content">
+
+                    <span class="idea-category">
+
+                        Art Education
+
+                    </span>
+
+                    <h3>
+
+                        Essential Classroom Art Equipment
+
+                    </h3>
+
+                    <a href="#">
+
+                        View Guide →
+
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     POPULAR BRANDS
+========================================================== -->
+
+<section class="brands-section">
+
+    <div class="page-width">
+
+        <header class="section-heading">
+
+            <h2>
+
+                Trusted Brands
+
+            </h2>
+
+            <p>
+
+                Working with leading manufacturers
+                from around the world.
+
+            </p>
+
+        </header>
+
+        <div class="brand-grid">
+
+            <a href="#" class="brand-card">
+
+                <img src="images/brand-3m.svg"
+                     alt="3M">
+
+            </a>
+
+            <a href="#" class="brand-card">
+
+                <img src="images/brand-evostik.svg"
+                     alt="Evostik">
+
+            </a>
+
+            <a href="#" class="brand-card">
+
+                <img src="images/brand-cricut.svg"
+                     alt="Cricut">
+
+            </a>
+
+            <a href="#" class="brand-card">
+
+                <img src="images/brand-uhu.svg"
+                     alt="UHU">
+
+            </a>
+
+            <a href="#" class="brand-card">
+
+                <img src="images/brand-staedtler.svg"
+                     alt="Staedtler">
+
+            </a>
+
+            <a href="#" class="brand-card">
+
+                <img src="images/brand-tilgear.svg"
+                     alt="Tilgear">
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     BUYING FOR EDUCATION
+========================================================== -->
+
+<section class="education-banner">
+
+    <div class="page-width">
+
+        <div class="education-banner-content">
+
+            <div>
+
+                <span class="section-label">
+
+                    FOR SCHOOLS & COLLEGES
+
+                </span>
+
+                <h2>
+
+                    Simple Purchasing for Education
+
+                </h2>
+
+                <p>
+
+                    Schools, colleges, universities and other
+                    recognised educational establishments can
+                    apply for a credit account and place orders
+                    using official purchase orders.
+
+                </p>
+
+            </div>
+
+            <div class="education-actions">
+
+                <a href="#" class="button button-primary">
+
+                    Apply for Credit
+
+                </a>
+
+                <a href="#" class="button button-secondary">
+
+                    Learn More
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     CUSTOMER TESTIMONIALS
+
+
+<section class="customer-testimonials">
+
+    <div class="page-width">
+
+        <header class="section-heading">
+
+            <h2>
+
+                Trusted by Education Professionals
+
+            </h2>
+
+            <p>
+
+                Supporting schools, colleges and makers
+                across the UK.
+
+            </p>
+
+        </header>
+
+        <div class="testimonial-grid">
+
+            <article class="testimonial-card">
+
+                <blockquote>
+
+                    "Excellent service and consistently
+                    reliable delivery. Our first choice
+                    for DT materials."
+
+                </blockquote>
+
+                <footer>
+
+                    <strong>Design Technology Teacher</strong>
+
+                    <span>Secondary School, Yorkshire</span>
+
+                </footer>
+
+            </article>
+
+            <article class="testimonial-card">
+
+                <blockquote>
+
+                    "The laser materials are excellent
+                    quality and always arrive well packed."
+
+                </blockquote>
+
+                <footer>
+
+                    <strong>Workshop Technician</strong>
+
+                    <span>FE College</span>
+
+                </footer>
+
+            </article>
+
+            <article class="testimonial-card">
+
+                <blockquote>
+
+                    "Helpful staff, competitive prices
+                    and an excellent range."
+
+                </blockquote>
+
+                <footer>
+
+                    <strong>Head of Art</strong>
+
+                    <span>Independent School</span>
+
+                </footer>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+========================================================== -->
+
+<!-- =========================================================
+     KNOWLEDGE CENTRE
+========================================================== -->
+
+<section class="knowledge-centre">
+
+    <div class="page-width">
+
+        <header class="section-heading">
+
+            <h2>
+
+                Knowledge Centre
+
+            </h2>
+
+            <p>
+
+                Guides, inspiration and practical advice
+                from the Tilgear team.
+
+            </p>
+
+        </header>
+
+        <div class="knowledge-grid">
+
+            <article class="knowledge-card">
+
+                <img src="images/article-acrylic.jpg"
+                     alt="Acrylic Guide">
+
+                <div class="knowledge-card-content">
+
+                    <span class="article-type">
+
+                        GUIDE
+
+                    </span>
+
+                    <h3>
+
+                        Cast vs Extruded Acrylic
+
+                    </h3>
+
+                    <p>
+
+                        Understand the differences and
+                        choose the right material.
+
+                    </p>
+
+                    <a href="#">
+
+                        Read Guide →
+
+                    </a>
+
+                </div>
+
+            </article>
+
+            <article class="knowledge-card">
+
+                <img src="images/article-laser.jpg"
+                     alt="Laser Materials">
+
+                <div class="knowledge-card-content">
+
+                    <span class="article-type">
+
+                        ADVICE
+
+                    </span>
+
+                    <h3>
+
+                        Choosing Laser Safe Materials
+
+                    </h3>
+
+                    <p>
+
+                        Which woods, plastics and boards
+                        work best with modern laser cutters.
+
+                    </p>
+
+                    <a href="#">
+
+                        Learn More →
+
+                    </a>
+
+                </div>
+
+            </article>
+
+            <article class="knowledge-card">
+
+                <img src="images/article-art.jpg"
+                     alt="Art Equipment">
+
+                <div class="knowledge-card-content">
+
+                    <span class="article-type">
+
+                        CLASSROOM
+
+                    </span>
+
+                    <h3>
+
+                        Equipping a Modern Art Room
+
+                    </h3>
+
+                    <p>
+
+                        Essential materials for primary
+                        and secondary education.
+
+                    </p>
+
+                    <a href="#">
+
+                        View Article →
+
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     FOOTER
+========================================================== -->
+
+<footer class="site-footer">
+
+    <div class="page-width footer-grid">
+
+        <section>
+
+            <h3>
+
+                Shop
+
+            </h3>
+
+            <a href="#">Art Materials</a>
+            <a href="#">Laser Materials</a>
+            <a href="#">Craft</a>
+            <a href="#">Workshop</a>
+
+        </section>
+
+        <section>
+
+            <h3>
+
+                Customer Services
+
+            </h3>
+
+            <a href="#">Delivery</a>
+            <a href="#">Returns</a>
+            <a href="#">Contact Us</a>
+            <a href="#">FAQs</a>
+
+        </section>
+
+        <section>
+
+            <h3>
+
+                About Tilgear
+
+            </h3>
+
+            <a href="#">About</a>
+            <a href="#">News</a>
+            <a href="#">Careers</a>
+
+        </section>
+
+        <section>
+
+            <h3>
+
+                Trade
+
+            </h3>
+
+            <a href="#">Education Accounts</a>
+            <a href="#">Quotes</a>
+            <a href="#">Schools</a>
+
+        </section>
+
+        <section>
+
+            <h3>
+
+                Contact
+
+            </h3>
+
+            <p>
+
+                01234 567890
+
+            </p>
+
+            <p>
+
+                sales@tilgear.co.uk
+
+            </p>
+
+        </section>
+
+    </div>
+
+</footer>
