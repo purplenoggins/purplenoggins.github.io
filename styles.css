@@ -1,0 +1,851 @@
+/* =============================================================
+   TILGEAR HOMEPAGE STYLESHEET
+   Reusable component classes (not element-specific IDs) so the
+   same .btn / .card / .category-tile patterns can be reused
+   across other pages of the site.
+   ============================================================= */
+
+/* -------------------------------------------------------------
+   1. DESIGN TOKENS
+   Central place to tweak brand colours, spacing and radii.
+   ------------------------------------------------------------- */
+:root {
+  /* Brand colours */
+  --color-navy: #203e78;       /* primary brand blue */
+  --color-navy-dark: #16294f;  /* darker blue for gradients/hover */
+  --color-yellow: #ffcc00;     /* brand accent (kept for potential use) */
+  --color-orange: #e8871e;     /* CTA orange seen in buttons/eyebrows */
+  --color-orange-dark: #c76f12;
+
+  /* Neutrals */
+  --color-bg: #ffffff;
+  --color-bg-muted: #f7f8fa;
+  --color-border: #e2e6ec;
+  --color-text: #1c2530;
+  --color-text-muted: #5b6472;
+  --color-white: #ffffff;
+
+  /* Feature panel tint (light blue "Purchasing Made Simple" band) */
+  --color-tint-blue: #eaf1fb;
+
+  /* Typography */
+  --font-base: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* Layout */
+  --container-width: 1200px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  /* Shadows */
+  --shadow-card: 0 1px 3px rgba(20, 30, 50, 0.08), 0 1px 2px rgba(20, 30, 50, 0.06);
+  --shadow-card-hover: 0 8px 20px rgba(20, 30, 50, 0.12);
+}
+
+/* -------------------------------------------------------------
+   2. RESET / BASE
+   ------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-base);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul { list-style: none; margin: 0; padding: 0; }
+
+h1, h2, h3, h4, p { margin: 0; }
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input {
+  font-family: inherit;
+  font-size: 15px;
+}
+
+/* Visible keyboard focus for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--color-orange);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* -------------------------------------------------------------
+   3. LAYOUT HELPERS
+   ------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding-inline: var(--space-5);
+}
+
+.section {
+  padding-block: var(--space-8);
+}
+
+.section--tight {
+  padding-block: var(--space-7);
+}
+
+/* Placeholder image block: shows a soft gradient instead of a
+   real photo so stakeholders can clearly see where imagery goes. */
+.placeholder-img {
+  background-image: var(--tile-gradient, linear-gradient(135deg, #dbe3ee, #b9c5d6));
+  background-size: cover;
+  background-position: center;
+}
+
+/* -------------------------------------------------------------
+   4. TYPOGRAPHY HELPERS
+   ------------------------------------------------------------- */
+.eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-orange);
+  margin-bottom: var(--space-2);
+}
+
+.eyebrow--on-dark {
+  color: var(--color-orange);
+}
+
+/* -------------------------------------------------------------
+   5. BUTTONS (reusable across the whole site)
+   ------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 12px 22px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn--primary {
+  background: var(--color-navy);
+  color: var(--color-white);
+}
+.btn--primary:hover { background: var(--color-navy-dark); }
+
+.btn--accent {
+  background: var(--color-orange);
+  color: var(--color-white);
+}
+.btn--accent:hover { background: var(--color-orange-dark); }
+
+.btn--outline-light {
+  background: transparent;
+  color: var(--color-white);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+.btn--outline-light:hover { background: rgba(255, 255, 255, 0.1); }
+
+.btn--outline-dark {
+  background: transparent;
+  color: var(--color-navy);
+  border: 1px solid var(--color-border);
+}
+.btn--outline-dark:hover { background: var(--color-bg-muted); }
+
+/* -------------------------------------------------------------
+   6. ICONS
+   Lightweight inline SVG icons via mask, so a single currentColor
+   fill can be reused and recoloured per context.
+   ------------------------------------------------------------- */
+.icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: currentColor;
+  vertical-align: middle;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
+
+.icon-phone     { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.1 21 3 13.9 3 5c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z'/%3E%3C/svg%3E"); -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.1 21 3 13.9 3 5c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z'/%3E%3C/svg%3E"); }
+
+.icon-mail      { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 4h16c.6 0 1 .4 1 1v14c0 .6-.4 1-1 1H4c-.6 0-1-.4-1-1V5c0-.6.4-1 1-1zm1.4 2 6.6 5.5L18.6 6H5.4zM21 7.4l-8.4 7-8.6-7V18h17V7.4z'/%3E%3C/svg%3E"); -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 4h16c.6 0 1 .4 1 1v14c0 .6-.4 1-1 1H4c-.6 0-1-.4-1-1V5c0-.6.4-1 1-1zm1.4 2 6.6 5.5L18.6 6H5.4zM21 7.4l-8.4 7-8.6-7V18h17V7.4z'/%3E%3C/svg%3E"); }
+
+.icon-search    { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M15.5 14h-.8l-.3-.3a6.5 6.5 0 1 0-.7.7l.3.3v.8l5 5 1.5-1.5-5-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z'/%3E%3C/svg%3E"); -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M15.5 14h-.8l-.3-.3a6.5 6.5 0 1 0-.7.7l.3.3v.8l5 5 1.5-1.5-5-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z'/%3E%3C/svg%3E"); }
+
+.icon-user      { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-4.4 0-8 2.2-8 5v2h16v-2c0-2.8-3.6-5-8-5z'/%3E%3C/svg%3E"); -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-4.4 0-8 2.2-8 5v2h16v-2c0-2.8-3.6-5-8-5z'/%3E%3C/svg%3E"); }
+
+.icon-bag       { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 7V6a5 5 0 0 1 10 0v1h3l-1 14H5L4 7h3zm2 0h6V6a3 3 0 0 0-6 0v1z'/%3E%3C/svg%3E"); -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 7V6a5 5 0 0 1 10 0v1h3l-1 14H5L4 7h3zm2 0h6V6a3 3 0 0 0-6 0v1z'/%3E%3C/svg%3E"); }
+
+.icon-menu      { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z'/%3E%3C/svg%3E"); -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z'/%3E%3C/svg%3E"); }
+
+.icon-check     { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E"); -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E"); }
+
+.icon-box       { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2 2 7v10l10 5 10-5V7L12 2zm0 2.2L19 8l-7 3.6L5 8l7-3.8zM4 9.7l7 3.6v7.6l-7-3.5V9.7zm9 11.2v-7.6l7-3.6v7.7l-7 3.5z'/%3E%3C/svg%3E"); -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2 2 7v10l10 5 10-5V7L12 2zm0 2.2L19 8l-7 3.6L5 8l7-3.8zM4 9.7l7 3.6v7.6l-7-3.5V9.7zm9 11.2v-7.6l7-3.6v7.7l-7 3.5z'/%3E%3C/svg%3E"); }
+
+.icon-truck     { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 6h11v8H3V6zm11 3h4l3 3v2h-7V9zM6.5 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm11 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4z'/%3E%3C/svg%3E"); -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 6h11v8H3V6zm11 3h4l3 3v2h-7V9zM6.5 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm11 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4z'/%3E%3C/svg%3E"); }
+
+.icon-shield    { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3z'/%3E%3C/svg%3E"); -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3z'/%3E%3C/svg%3E"); }
+
+.icon-arrow     { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13 5l7 7-7 7-1.4-1.4L16.2 13H4v-2h12.2l-4.6-4.6z'/%3E%3C/svg%3E"); -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13 5l7 7-7 7-1.4-1.4L16.2 13H4v-2h12.2l-4.6-4.6z'/%3E%3C/svg%3E"); width: 14px; height: 14px; }
+
+.icon-arrow--light { color: var(--color-white); }
+
+.icon-users     { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm8 0a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm-8 2c-3.3 0-6 1.8-6 4v2h9v-2c0-1.1.4-2.1 1.1-3A9 9 0 0 0 8 14zm8 0c-.6 0-1.2.1-1.7.2.9.9 1.7 2.1 1.7 3.8v2h6v-2c0-2.2-2.7-4-6-4z'/%3E%3C/svg%3E"); -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm8 0a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm-8 2c-3.3 0-6 1.8-6 4v2h9v-2c0-1.1.4-2.1 1.1-3A9 9 0 0 0 8 14zm8 0c-.6 0-1.2.1-1.7.2.9.9 1.7 2.1 1.7 3.8v2h6v-2c0-2.2-2.7-4-6-4z'/%3E%3C/svg%3E"); }
+
+.icon-pin       { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 14.5 9 2.5 2.5 0 0 1 12 11.5z'/%3E%3C/svg%3E"); -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 14.5 9 2.5 2.5 0 0 1 12 11.5z'/%3E%3C/svg%3E"); }
+
+.icon-school, .icon-school-outline { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2 1 8l11 6 9-4.9V17h2V8L12 2zM5 10.8V16c0 2 3.1 4 7 4s7-2 7-4v-5.2l-7 3.8-7-3.8z'/%3E%3C/svg%3E"); -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2 1 8l11 6 9-4.9V17h2V8L12 2zM5 10.8V16c0 2 3.1 4 7 4s7-2 7-4v-5.2l-7 3.8-7-3.8z'/%3E%3C/svg%3E"); }
+
+.icon-school-outline { width: 28px; height: 28px; }
+
+.icon-facebook  { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.5 22v-8h2.7l.4-3.1h-3.1V9c0-.9.2-1.5 1.6-1.5h1.7V4.7C16.5 4.6 15.5 4.5 14.4 4.5c-2.3 0-3.9 1.4-3.9 4v2.4H8v3.1h2.5V22h3z'/%3E%3C/svg%3E"); -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.5 22v-8h2.7l.4-3.1h-3.1V9c0-.9.2-1.5 1.6-1.5h1.7V4.7C16.5 4.6 15.5 4.5 14.4 4.5c-2.3 0-3.9 1.4-3.9 4v2.4H8v3.1h2.5V22h3z'/%3E%3C/svg%3E"); }
+
+.icon-instagram { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2c-2.7 0-3.1 0-4.1.1-1.1.1-1.9.3-2.5.6-.7.3-1.3.7-1.9 1.3-.6.6-1 1.2-1.3 1.9-.3.6-.5 1.4-.6 2.5C1.5 9.4 1.5 9.8 1.5 12.5s0 3.1.1 4.1c.1 1.1.3 1.9.6 2.5.3.7.7 1.3 1.3 1.9.6.6 1.2 1 1.9 1.3.6.3 1.4.5 2.5.6 1 .1 1.4.1 4.1.1s3.1 0 4.1-.1c1.1-.1 1.9-.3 2.5-.6.7-.3 1.3-.7 1.9-1.3.6-.6 1-1.2 1.3-1.9.3-.6.5-1.4.6-2.5.1-1 .1-1.4.1-4.1s0-3.1-.1-4.1c-.1-1.1-.3-1.9-.6-2.5-.3-.7-.7-1.3-1.3-1.9-.6-.6-1.2-1-1.9-1.3-.6-.3-1.4-.5-2.5-.6C15.1 2 14.7 2 12 2zm0 4.9a5.6 5.6 0 1 1 0 11.2 5.6 5.6 0 0 1 0-11.2zm0 2a3.6 3.6 0 1 0 0 7.2 3.6 3.6 0 0 0 0-7.2zm5.8-2.2a1.3 1.3 0 1 1-2.6 0 1.3 1.3 0 0 1 2.6 0z'/%3E%3C/svg%3E"); -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2c-2.7 0-3.1 0-4.1.1-1.1.1-1.9.3-2.5.6-.7.3-1.3.7-1.9 1.3-.6.6-1 1.2-1.3 1.9-.3.6-.5 1.4-.6 2.5C1.5 9.4 1.5 9.8 1.5 12.5s0 3.1.1 4.1c.1 1.1.3 1.9.6 2.5.3.7.7 1.3 1.3 1.9.6.6 1.2 1 1.9 1.3.6.3 1.4.5 2.5.6 1 .1 1.4.1 4.1.1s3.1 0 4.1-.1c1.1-.1 1.9-.3 2.5-.6.7-.3 1.3-.7 1.9-1.3.6-.6 1-1.2 1.3-1.9.3-.6.5-1.4.6-2.5.1-1 .1-1.4.1-4.1s0-3.1-.1-4.1c-.1-1.1-.3-1.9-.6-2.5-.3-.7-.7-1.3-1.3-1.9-.6-.6-1.2-1-1.9-1.3-.6-.3-1.4-.5-2.5-.6C15.1 2 14.7 2 12 2zm0 4.9a5.6 5.6 0 1 1 0 11.2 5.6 5.6 0 0 1 0-11.2zm0 2a3.6 3.6 0 1 0 0 7.2 3.6 3.6 0 0 0 0-7.2zm5.8-2.2a1.3 1.3 0 1 1-2.6 0 1.3 1.3 0 0 1 2.6 0z'/%3E%3C/svg%3E"); }
+
+.icon-linkedin  { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.5 8.5H3V21h3.5V8.5zM4.7 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM21 13.4V21h-3.5v-7.1c0-1.7-.6-2.9-2.1-2.9-1.2 0-1.9.8-2.2 1.5-.1.3-.1.6-.1 1V21H9.6s.1-11.5 0-12.5h3.5v1.8a3.5 3.5 0 0 1 3.2-1.8c2.3 0 4.1 1.5 4.1 4.9z'/%3E%3C/svg%3E"); -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.5 8.5H3V21h3.5V8.5zM4.7 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM21 13.4V21h-3.5v-7.1c0-1.7-.6-2.9-2.1-2.9-1.2 0-1.9.8-2.2 1.5-.1.3-.1.6-.1 1V21H9.6s.1-11.5 0-12.5h3.5v1.8a3.5 3.5 0 0 1 3.2-1.8c2.3 0 4.1 1.5 4.1 4.9z'/%3E%3C/svg%3E"); }
+
+/* -------------------------------------------------------------
+   7. TOP UTILITY BAR
+   ------------------------------------------------------------- */
+.topbar {
+  background: var(--color-bg-muted);
+  border-bottom: 1px solid var(--color-border);
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.topbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 36px;
+}
+
+.topbar__contact { display: flex; gap: var(--space-5); }
+
+.topbar__link { display: inline-flex; align-items: center; gap: var(--space-1); }
+.topbar__link .icon { width: 13px; height: 13px; }
+
+.topbar__links { display: flex; gap: var(--space-5); }
+.topbar__links a:hover { color: var(--color-navy); }
+
+/* -------------------------------------------------------------
+   8. SITE HEADER
+   ------------------------------------------------------------- */
+.site-header { padding-block: var(--space-4); }
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--color-navy);
+  line-height: 1.1;
+  flex-shrink: 0;
+}
+
+.logo__sub {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--color-orange);
+  text-transform: uppercase;
+}
+
+.header-search {
+  flex: 1;
+  display: flex;
+  max-width: 460px;
+}
+
+.header-search input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid var(--color-border);
+  border-right: none;
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+}
+
+.header-search__btn {
+  width: 48px;
+  background: var(--color-navy);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+}
+.header-search__btn:hover { background: var(--color-navy-dark); }
+
+.header-actions {
+  display: flex;
+  gap: var(--space-5);
+  margin-left: auto;
+}
+
+.header-actions__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.header-actions__text {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.header-actions__text small {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+/* -------------------------------------------------------------
+   9. PRIMARY NAVIGATION
+   ------------------------------------------------------------- */
+.main-nav {
+  background: var(--color-navy);
+  color: var(--color-white);
+}
+
+.main-nav__inner {
+  display: flex;
+  align-items: stretch;
+}
+
+.main-nav__categories {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 14px var(--space-5);
+  background: var(--color-navy-dark);
+  color: var(--color-white);
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.main-nav__list {
+  display: flex;
+  align-items: center;
+}
+
+.main-nav__list li a {
+  display: block;
+  padding: 14px var(--space-4);
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.15s ease;
+}
+
+.main-nav__list li a:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* -------------------------------------------------------------
+   10. HERO
+   ------------------------------------------------------------- */
+.hero {
+  background: linear-gradient(120deg, var(--color-navy) 0%, var(--color-navy-dark) 100%);
+  padding-block: var(--space-8);
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-7);
+  align-items: center;
+}
+
+.hero__title {
+  font-size: 40px;
+  line-height: 1.15;
+  font-weight: 800;
+  color: var(--color-white);
+  margin-bottom: var(--space-4);
+  max-width: 480px;
+}
+
+.hero__text {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 16px;
+  max-width: 460px;
+  margin-bottom: var(--space-5);
+}
+
+.hero-search {
+  display: flex;
+  max-width: 460px;
+  margin-bottom: var(--space-4);
+}
+
+.hero-search input {
+  flex: 1;
+  padding: 13px 16px;
+  border: none;
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+}
+
+.hero-search .btn {
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.hero__ctas {
+  display: flex;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.hero__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+}
+
+.hero__badges li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-white);
+}
+
+.hero__badges .icon { color: var(--color-orange); }
+
+.hero__media {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-lg);
+  min-height: 320px;
+}
+
+/* -------------------------------------------------------------
+   11. SECTION HEADER (reused above product/category grids)
+   ------------------------------------------------------------- */
+.section-header { max-width: 560px; margin-bottom: var(--space-6); }
+
+.section-header__title {
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--color-navy);
+  margin-bottom: var(--space-3);
+}
+
+.section-header__text { color: var(--color-text-muted); font-size: 15px; }
+
+.row-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: var(--space-5);
+}
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--color-navy);
+}
+.link-arrow:hover { color: var(--color-orange); }
+.link-arrow .icon { color: var(--color-orange); }
+
+/* -------------------------------------------------------------
+   12. CATEGORY GRID
+   A 12-col-ish grid where the acrylic tile spans two rows and
+   the laser tile spans two columns, matching the mockup layout.
+   ------------------------------------------------------------- */
+.category-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.category-tile {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-5);
+  color: var(--color-white);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.category-tile::before {
+  /* Scrim so light-coloured placeholder gradients still keep white
+     text readable, same as it would with a photographic image. */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0) 60%);
+}
+
+.category-tile > * { position: relative; z-index: 1; }
+
+.category-tile:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.category-tile--large {
+  grid-row: 1 / 3;
+  min-height: 380px;
+}
+
+.category-tile--wide {
+  grid-column: 2 / 4;
+}
+
+.category-tile__label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.category-tile__desc {
+  font-size: 14px;
+  margin-top: var(--space-2);
+  max-width: 320px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Full-width promotional strip (Workshop & DT) */
+.banner-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-1);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  min-height: 140px;
+  padding: var(--space-6);
+  color: var(--color-white);
+}
+
+.banner-tile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.15));
+}
+
+.banner-tile > * { position: relative; z-index: 1; }
+
+.banner-tile__label { font-size: 22px; font-weight: 700; }
+.banner-tile__desc { font-size: 14px; color: rgba(255, 255, 255, 0.85); max-width: 420px; }
+.banner-tile .icon-arrow { position: absolute; right: var(--space-6); top: 50%; transform: translateY(-50%); width: 20px; height: 20px; }
+
+/* -------------------------------------------------------------
+   13. PRODUCT GRID / CARD
+   ------------------------------------------------------------- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--space-5);
+}
+
+.product-card__img {
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-3);
+}
+
+.product-card__tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-1);
+}
+
+.product-card__title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: var(--space-1);
+}
+
+.product-card__price {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-navy);
+}
+
+/* -------------------------------------------------------------
+   14. WHY CHOOSE TILGEAR (feature list)
+   ------------------------------------------------------------- */
+.feature-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-5);
+}
+
+.feature-list__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-navy);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.feature-icon .icon { width: 20px; height: 20px; }
+
+.feature-list__title { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+.feature-list__text { font-size: 13px; color: var(--color-text-muted); }
+
+/* -------------------------------------------------------------
+   15. IDEAS & INSPIRATION
+   ------------------------------------------------------------- */
+.ideas-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.3fr 1fr;
+  gap: var(--space-5);
+  align-items: stretch;
+}
+
+.ideas-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+.ideas-intro__title { font-size: 26px; font-weight: 800; color: var(--color-navy); }
+.ideas-intro__text { color: var(--color-text-muted); font-size: 14px; margin-bottom: var(--space-2); }
+
+/* Card base, reused for both the large featured article and the
+   two smaller stacked articles. */
+.article-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-white);
+  box-shadow: var(--shadow-card);
+}
+
+.article-card__body { padding: var(--space-4); }
+.article-card__title { font-size: 16px; font-weight: 700; margin-bottom: var(--space-2); }
+.article-card__text { font-size: 13px; color: var(--color-text-muted); margin-bottom: var(--space-3); }
+
+.article-card--featured {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.article-card--featured .article-card__img { height: 100%; min-height: 220px; }
+.article-card--featured .article-card__body { display: flex; flex-direction: column; justify-content: center; }
+
+.article-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.article-card--small {
+  display: flex;
+  align-items: stretch;
+}
+.article-card--small .article-card__img { width: 100px; flex-shrink: 0; }
+.article-card--small .article-card__body { padding: var(--space-3) var(--space-4); flex: 1; }
+.article-card--small .article-card__title { font-size: 14px; margin-bottom: var(--space-1); }
+
+/* -------------------------------------------------------------
+   16. PURCHASING MADE SIMPLE (CTA banner)
+   ------------------------------------------------------------- */
+.banner-cta {
+  background: var(--color-tint-blue);
+  padding-block: var(--space-7);
+}
+
+.banner-cta__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.banner-cta__icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--color-navy);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.banner-cta__content { flex: 1; }
+.banner-cta__title { font-size: 24px; font-weight: 800; color: var(--color-navy); margin-bottom: var(--space-2); }
+.banner-cta__text { font-size: 14px; color: var(--color-text-muted); max-width: 560px; margin-bottom: var(--space-4); }
+
+.pill-list { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.pill-list li {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-navy);
+  background: rgba(32, 62, 120, 0.08);
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+.banner-cta__btn { flex-shrink: 0; }
+
+/* -------------------------------------------------------------
+   17. FOOTER
+   ------------------------------------------------------------- */
+.site-footer {
+  background: var(--color-navy-dark);
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.site-footer__inner {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr;
+  gap: var(--space-6);
+  padding-block: var(--space-7);
+}
+
+.logo--footer {
+  color: var(--color-white);
+  margin-bottom: var(--space-3);
+}
+
+.footer-brand__text { font-size: 13px; line-height: 1.6; margin-bottom: var(--space-4); max-width: 260px; }
+
+.footer-social { display: flex; gap: var(--space-3); }
+.footer-social a {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+}
+.footer-social a:hover { background: rgba(255, 255, 255, 0.1); }
+
+.footer-col__title {
+  color: var(--color-white);
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: var(--space-4);
+}
+
+.footer-col ul { display: flex; flex-direction: column; gap: var(--space-3); }
+.footer-col a, .footer-col li { font-size: 13px; }
+.footer-col a:hover { color: var(--color-white); }
+
+.site-footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.site-footer__bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--space-4);
+  font-size: 12px;
+}
+
+.footer-legal { display: flex; gap: var(--space-5); }
+.footer-legal a:hover { color: var(--color-white); }
+
+/* -------------------------------------------------------------
+   18. RESPONSIVE
+   ------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .hero__inner { grid-template-columns: 1fr; }
+  .hero__media { min-height: 260px; }
+  .product-grid { grid-template-columns: repeat(3, 1fr); }
+  .feature-list { grid-template-columns: repeat(3, 1fr); }
+  .ideas-grid { grid-template-columns: 1fr; }
+  .article-card--featured { grid-template-columns: 1fr; }
+  .site-footer__inner { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 720px) {
+  .topbar__links { display: none; }
+  .site-header__inner { flex-wrap: wrap; }
+  .header-search { order: 3; max-width: 100%; flex-basis: 100%; }
+  .main-nav__list { flex-wrap: wrap; }
+  .hero__title { font-size: 30px; }
+  .category-grid { grid-template-columns: 1fr 1fr; }
+  .category-tile--large { grid-column: 1 / 3; grid-row: auto; min-height: 220px; }
+  .category-tile--wide { grid-column: 1 / 3; }
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+  .feature-list { grid-template-columns: 1fr 1fr; }
+  .banner-cta__inner { flex-wrap: wrap; }
+  .site-footer__inner { grid-template-columns: 1fr; }
+}
