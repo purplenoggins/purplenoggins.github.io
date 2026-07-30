@@ -1,0 +1,283 @@
+/* =============================================================
+   TILGEAR — PROTOTYPE OVERRIDES
+   Purpose: layer modern-ecommerce polish on top of the baseline
+   styles.css WITHOUT changing any HTML. Load this file AFTER
+   styles.css so the cascade lets these rules win.
+
+   <link rel="stylesheet" href="styles.css">
+   <link rel="stylesheet" href="prototype.css">   <-- add this line
+
+   Every block below is independent — comment one out if you
+   don't like it, the rest keep working.
+   ============================================================= */
+
+/* -------------------------------------------------------------
+   0. MODERN TYPEFACE
+   Manrope is a grotesk built for UI/ecomm use (used by brands
+   like Notion, many Shopify themes). Falls back to the original
+   system stack if the font fails to load (no internet, etc).
+   ------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --font-base: 'Manrope', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  /* Bigger, softer radii read as more "current" than the
+     original tight 6-16px scale. */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+
+  /* Extra shadow tiers for a clearer sense of depth/hierarchy
+     than the single --shadow-card token gave us. */
+  --shadow-xs: 0 1px 2px rgba(20, 30, 50, 0.06);
+  --shadow-sm: 0 2px 8px rgba(20, 30, 50, 0.08);
+  --shadow-md: 0 12px 24px -8px rgba(20, 30, 50, 0.18);
+  --shadow-lg: 0 24px 48px -12px rgba(20, 30, 50, 0.28);
+
+  /* Shared easing curve so every hover/lift animation feels
+     like part of the same system rather than default linear. */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* -------------------------------------------------------------
+   1. BASE TEXT SIZE FIX
+   On a 12" 1080p panel the pixel density is high enough that a
+   16px base reads visibly small. Bumping the root size scales
+   every rem-based measurement (and most of the original file's
+   px values, once we reassert them below) without a full retype.
+   ------------------------------------------------------------- */
+html {
+  font-size: 106.25%; /* 16px -> ~17px baseline */
+}
+
+body {
+  font-size: 1rem;
+  line-height: 1.65; /* a touch more air than the original 1.5 */
+}
+
+/* -------------------------------------------------------------
+   2. FLUID HEADING SCALE
+   clamp() lets headings grow on large screens and shrink on
+   small ones automatically, so one rule replaces several
+   breakpoint-specific overrides.
+   ------------------------------------------------------------- */
+.hero__title {
+  font-size: clamp(2rem, 1.4rem + 2.4vw, 3rem);
+  letter-spacing: -0.01em; /* large modern type is set slightly tighter */
+}
+
+.section-header__title {
+  font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.1rem);
+  letter-spacing: -0.01em;
+}
+
+.ideas-intro__title {
+  font-size: clamp(1.4rem, 1.2rem + 0.8vw, 1.75rem);
+}
+
+.banner-cta__title {
+  font-size: clamp(1.3rem, 1.1rem + 0.8vw, 1.6rem);
+}
+
+.eyebrow {
+  font-size: 0.8125rem;
+  letter-spacing: 0.1em;
+}
+
+.hero__text,
+.section-header__text {
+  font-size: 1.0625rem;
+}
+
+/* -------------------------------------------------------------
+   3. STICKY HEADER
+   Keeps search + basket accessible while browsing — standard on
+   most modern ecommerce sites. The top utility bar scrolls away;
+   the shopping-relevant header stays.
+   ------------------------------------------------------------- */
+.site-header,
+.main-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.site-header {
+  background: var(--color-white);
+  box-shadow: var(--shadow-xs);
+}
+
+/* -------------------------------------------------------------
+   4. BUTTONS — pill shape + tactile hover/press motion
+   Pill buttons (full rounded ends) are the current ecomm norm
+   for primary actions; the lift-on-hover, press-on-active pair
+   makes them feel clickable rather than flat.
+   ------------------------------------------------------------- */
+.btn {
+  border-radius: 999px;
+  padding: 0.8em 1.6em;
+  font-weight: 700;
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), background-color 0.2s var(--ease);
+}
+
+.btn--primary,
+.btn--accent {
+  box-shadow: var(--shadow-sm);
+}
+
+.btn--primary:hover,
+.btn--accent:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-xs);
+}
+
+/* Search buttons stay square-ended (a pill search button reads
+   oddly attached to a square input) — reset just those. */
+.header-search__btn,
+.hero-search .btn {
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 12px 22px;
+}
+
+/* Arrow links get a small slide-right nudge on hover, a cheap
+   but effective "this is interactive" signal. */
+.link-arrow .icon,
+.category-tile__label .icon,
+.banner-tile .icon-arrow {
+  transition: transform 0.2s var(--ease);
+}
+
+.link-arrow:hover .icon {
+  transform: translateX(3px);
+}
+
+/* -------------------------------------------------------------
+   5. CARD & TILE ELEVATION + HOVER MOTION
+   Every card lifts and its image gains a subtle zoom on hover —
+   the single most recognizable "modern ecomm" micro-interaction.
+   ------------------------------------------------------------- */
+.product-card,
+.article-card,
+.category-tile,
+.banner-tile {
+  border-radius: var(--radius-md);
+}
+
+.product-card {
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  transition: box-shadow 0.25s var(--ease), transform 0.25s var(--ease);
+}
+
+.product-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+/* Clip the image so the hover-zoom below doesn't spill past the
+   card's rounded corners. */
+.product-card__img {
+  overflow: hidden;
+  transition: transform 0.4s var(--ease);
+}
+
+.product-card:hover .product-card__img {
+  transform: scale(1.04);
+}
+
+.product-card__price {
+  font-size: 1.05rem;
+}
+
+.article-card {
+  transition: box-shadow 0.25s var(--ease), transform 0.25s var(--ease);
+}
+
+.article-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.category-tile,
+.banner-tile {
+  transition: box-shadow 0.3s var(--ease);
+}
+
+.category-tile:hover,
+.banner-tile:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Background-image zoom on the category/banner tiles. These use
+   a background-image (the placeholder gradient) rather than an
+   <img>, so we scale the whole element and rely on the tile's
+   own overflow:hidden (already set in styles.css) to clip it. */
+.category-tile,
+.banner-tile {
+  transition: box-shadow 0.3s var(--ease), background-size 0.4s var(--ease);
+  background-size: 100%;
+}
+
+.category-tile:hover,
+.banner-tile:hover {
+  background-size: 108%;
+}
+
+.feature-icon {
+  transition: transform 0.25s var(--ease);
+}
+
+.feature-list__item:hover .feature-icon {
+  transform: translateY(-2px) scale(1.05);
+}
+
+/* -------------------------------------------------------------
+   6. SECTION RHYTHM
+   Alternating a very light tint behind every other section adds
+   scannable rhythm down the page instead of one long white sheet
+   — a pattern most ecommerce homepages use.
+   ------------------------------------------------------------- */
+.section:nth-of-type(even) {
+  background: var(--color-bg-muted);
+}
+
+.section {
+  padding-block: var(--space-8);
+}
+
+/* -------------------------------------------------------------
+   7. MISC POLISH
+   ------------------------------------------------------------- */
+
+/* Slightly larger, bolder product/article titles read better at
+   the new base size and match modern ecomm's bolder hierarchy. */
+.product-card__title,
+.article-card__title {
+  font-weight: 700;
+}
+
+/* Basket/account text bumped in line with the base-size fix. */
+.header-actions__text {
+  font-size: 0.95rem;
+}
+
+/* Smooth-scroll respects reduced-motion already via styles.css;
+   this just re-confirms it for anything added above. */
+@media (prefers-reduced-motion: reduce) {
+  .product-card,
+  .article-card,
+  .category-tile,
+  .banner-tile,
+  .product-card__img,
+  .feature-icon,
+  .btn,
+  .link-arrow .icon {
+    transition: none !important;
+  }
+}
