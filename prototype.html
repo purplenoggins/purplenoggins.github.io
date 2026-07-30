@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tilgear Educational Materials</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="prototype.css">
+</head>
+<body>
+
+<!-- =========================================================
+     UTILITY TOP BAR
+     ========================================================= -->
+<div class="topbar">
+  <div class="container topbar__inner">
+    <div class="topbar__contact">
+      <a href="tel:01234567890" class="topbar__link">
+        <span class="icon icon-phone" aria-hidden="true"></span> 01234 567890
+      </a>
+      <a href="mailto:sales@tilgear.co.uk" class="topbar__link">
+        <span class="icon icon-mail" aria-hidden="true"></span> sales@tilgear.co.uk
+      </a>
+    </div>
+    <nav class="topbar__links" aria-label="Secondary">
+      <a href="#">About Us</a>
+      <a href="#">Knowledge Centre</a>
+      <a href="#">Contact Us</a>
+    </nav>
+  </div>
+</div>
+
+<!-- =========================================================
+     MAIN HEADER: logo / search / account / basket
+     ========================================================= -->
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="#" class="logo">
+      TILGEAR
+      <span class="logo__sub">Educational Materials</span>
+    </a>
+
+    <form class="header-search" role="search">
+      <input type="search" placeholder="Search over 7,000 educational products" aria-label="Search products">
+      <button type="submit" class="header-search__btn" aria-label="Search">
+        <span class="icon icon-search" aria-hidden="true"></span>
+      </button>
+    </form>
+
+    <div class="header-actions">
+      <a href="#" class="header-actions__item">
+        <span class="icon icon-user" aria-hidden="true"></span>
+        <span class="header-actions__text">
+          Account
+          <small>Sign in / Register</small>
+        </span>
+      </a>
+      <a href="#" class="header-actions__item">
+        <span class="icon icon-bag" aria-hidden="true"></span>
+        <span class="header-actions__text">
+          Basket
+          <small>0 items &ndash; &pound;0.00</small>
+        </span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- =========================================================
+     PRIMARY NAVIGATION
+     ========================================================= -->
+<nav class="main-nav" aria-label="Primary">
+  <div class="container main-nav__inner">
+    <button class="main-nav__categories">
+      <span class="icon icon-menu" aria-hidden="true"></span> Shop by Category
+    </button>
+    <ul class="main-nav__list">
+      <li><a href="#">Art Materials</a></li>
+      <li><a href="#">Craft</a></li>
+      <li><a href="#">Acrylic Sheets</a></li>
+      <li><a href="#">Laser Materials</a></li>
+      <li><a href="#">Workshop &amp; DT</a></li>
+      <li><a href="#">Brands</a></li>
+      <li><a href="#">Offers</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+  <!-- =========================================================
+       HERO
+       ========================================================= -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <p class="eyebrow eyebrow--on-dark">Educational Materials for Creative Learning</p>
+        <h1 class="hero__title">Everything your classroom, workshop and studio needs.</h1>
+        <p class="hero__text">Over 7,000 carefully selected products for Art, Design Technology, Laser Cutting, Engineering and Education.</p>
+
+        <form class="hero-search" role="search">
+          <input type="search" placeholder="Search over 7,000 educational products" aria-label="Search products">
+          <button type="submit" class="btn btn--primary">Search</button>
+        </form>
+
+        <div class="hero__ctas">
+          <a href="#" class="btn btn--accent">Browse Categories</a>
+          <a href="#" class="btn btn--outline-light">Explore Laser Materials</a>
+        </div>
+
+        <ul class="hero__badges">
+          <li><span class="icon icon-check" aria-hidden="true"></span> Education Specialists</li>
+          <li><span class="icon icon-box" aria-hidden="true"></span> 7,000+ Products</li>
+          <li><span class="icon icon-truck" aria-hidden="true"></span> Fast UK Delivery</li>
+          <li><span class="icon icon-shield" aria-hidden="true"></span> Credit for Schools</li>
+        </ul>
+      </div>
+
+      <div class="hero__media placeholder-img" role="img" aria-label="Workshop with laser cutting materials"></div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SHOP BY CATEGORY
+       ========================================================= -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Explore</p>
+        <h2 class="section-header__title">Shop by Category</h2>
+        <p class="section-header__text">Start with the main departments most often used by schools, colleges and makers.</p>
+      </div>
+
+      <div class="category-grid">
+        <a href="#" class="category-tile category-tile--large placeholder-img" style="--tile-gradient: linear-gradient(135deg,#cbd5e1,#94a3b8);">
+          <span class="category-tile__label">
+            Acrylic Sheets
+            <span class="icon icon-arrow" aria-hidden="true"></span>
+          </span>
+          <span class="category-tile__desc">Cast, extruded, mirrored and fluorescent acrylic for display and fabrication.</span>
+        </a>
+
+        <a href="#" class="category-tile placeholder-img" style="--tile-gradient: linear-gradient(135deg,#fbcfe8,#a5b4fc);">
+          <span class="category-tile__label">Art Materials <span class="icon icon-arrow" aria-hidden="true"></span></span>
+        </a>
+
+        <a href="#" class="category-tile placeholder-img" style="--tile-gradient: linear-gradient(135deg,#fde68a,#f9a8d4);">
+          <span class="category-tile__label">Craft <span class="icon icon-arrow" aria-hidden="true"></span></span>
+        </a>
+
+        <a href="#" class="category-tile category-tile--wide placeholder-img" style="--tile-gradient: linear-gradient(135deg,#78350f,#f59e0b);">
+          <span class="category-tile__label">Laser Materials <span class="icon icon-arrow" aria-hidden="true"></span></span>
+        </a>
+      </div>
+
+      <a href="#" class="banner-tile placeholder-img" style="--tile-gradient: linear-gradient(135deg,#1c1917,#57534e);">
+        <span class="banner-tile__label">Workshop &amp; DT</span>
+        <span class="banner-tile__desc">Materials, consumables and supplies for design technology and maker spaces.</span>
+        <span class="icon icon-arrow icon-arrow--light" aria-hidden="true"></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       POPULAR PRODUCTS
+       ========================================================= -->
+  <section class="section section--tight">
+    <div class="container">
+      <div class="row-header">
+        <p class="eyebrow">Popular</p>
+        <a href="#" class="link-arrow">View All <span class="icon icon-arrow" aria-hidden="true"></span></a>
+      </div>
+
+      <div class="product-grid">
+
+        <article class="product-card">
+          <div class="product-card__img placeholder-img" style="--tile-gradient: linear-gradient(135deg,#e2e8f0,#cbd5e1);"></div>
+          <p class="product-card__tag">Acrylic</p>
+          <h3 class="product-card__title">Clear Cast Acrylic Sheet</h3>
+          <p class="product-card__price">From &pound;8.95</p>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__img placeholder-img" style="--tile-gradient: linear-gradient(135deg,#d6b98c,#a9744f);"></div>
+          <p class="product-card__tag">Wood</p>
+          <h3 class="product-card__title">Laser Birch Plywood</h3>
+          <p class="product-card__price">From &pound;4.75</p>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__img placeholder-img" style="--tile-gradient: linear-gradient(135deg,#fef3c7,#fca5a5);"></div>
+          <p class="product-card__tag">Adhesives</p>
+          <h3 class="product-card__title">PVA Wood Glue</h3>
+          <p class="product-card__price">&pound;3.95</p>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__img placeholder-img" style="--tile-gradient: linear-gradient(135deg,#f8fafc,#e2e8f0);"></div>
+          <p class="product-card__tag">Display</p>
+          <h3 class="product-card__title">White Foamboard</h3>
+          <p class="product-card__price">From &pound;2.95</p>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__img placeholder-img" style="--tile-gradient: linear-gradient(135deg,#c4b5fd,#f9a8d4);"></div>
+          <p class="product-card__tag">Art</p>
+          <h3 class="product-card__title">Heavyweight Paper</h3>
+          <p class="product-card__price">From &pound;5.50</p>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__img placeholder-img" style="--tile-gradient: linear-gradient(135deg,#e7c9a3,#c9975f);"></div>
+          <p class="product-card__tag">Laser</p>
+          <h3 class="product-card__title">Premium MDF Sheet</h3>
+          <p class="product-card__price">From &pound;6.25</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       WHY CHOOSE TILGEAR
+       ========================================================= -->
+  <section class="section section--tight">
+    <div class="container">
+      <p class="eyebrow">Why Choose Tilgear</p>
+
+      <ul class="feature-list">
+        <li class="feature-list__item">
+          <span class="feature-icon"><span class="icon icon-users" aria-hidden="true"></span></span>
+          <div>
+            <h3 class="feature-list__title">Education Specialists</h3>
+            <p class="feature-list__text">We understand education and creative environments.</p>
+          </div>
+        </li>
+        <li class="feature-list__item">
+          <span class="feature-icon"><span class="icon icon-box" aria-hidden="true"></span></span>
+          <div>
+            <h3 class="feature-list__title">7,000+ Products</h3>
+            <p class="feature-list__text">Huge range of materials and consumables.</p>
+          </div>
+        </li>
+        <li class="feature-list__item">
+          <span class="feature-icon"><span class="icon icon-pin" aria-hidden="true"></span></span>
+          <div>
+            <h3 class="feature-list__title">Expert Advice</h3>
+            <p class="feature-list__text">Friendly support from our knowledgeable team.</p>
+          </div>
+        </li>
+        <li class="feature-list__item">
+          <span class="feature-icon"><span class="icon icon-truck" aria-hidden="true"></span></span>
+          <div>
+            <h3 class="feature-list__title">Fast UK Delivery</h3>
+            <p class="feature-list__text">Reliable and quick delivery across the UK.</p>
+          </div>
+        </li>
+        <li class="feature-list__item">
+          <span class="feature-icon"><span class="icon icon-school" aria-hidden="true"></span></span>
+          <div>
+            <h3 class="feature-list__title">Trusted by Schools</h3>
+            <p class="feature-list__text">Working with schools and colleges for over 40 years.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       IDEAS & INSPIRATION
+       ========================================================= -->
+  <section class="section">
+    <div class="container">
+      <div class="ideas-grid">
+
+        <div class="ideas-intro">
+          <p class="eyebrow">Discover</p>
+          <h2 class="ideas-intro__title">Ideas &amp; Inspiration</h2>
+          <p class="ideas-intro__text">Guides, projects and practical advice from the Tilgear team.</p>
+          <a href="#" class="btn btn--outline-dark">View All Articles</a>
+        </div>
+
+        <article class="article-card article-card--featured">
+          <div class="article-card__img placeholder-img" style="--tile-gradient: linear-gradient(135deg,#78350f,#292524);"></div>
+          <div class="article-card__body">
+            <p class="eyebrow">Featured Article</p>
+            <h3 class="article-card__title">Classroom Laser Cutting Projects for KS3 &amp; GCSE</h3>
+            <p class="article-card__text">Discover practical classroom ideas, downloadable resources and material recommendations.</p>
+            <a href="#" class="link-arrow">Read article <span class="icon icon-arrow" aria-hidden="true"></span></a>
+          </div>
+        </article>
+
+        <div class="article-stack">
+          <article class="article-card article-card--small">
+            <div class="article-card__img placeholder-img" style="--tile-gradient: linear-gradient(135deg,#93c5fd,#c084fc);"></div>
+            <div class="article-card__body">
+              <p class="eyebrow">Guide</p>
+              <h3 class="article-card__title">Choosing the Right Acrylic</h3>
+              <a href="#" class="link-arrow">Learn more <span class="icon icon-arrow" aria-hidden="true"></span></a>
+            </div>
+          </article>
+
+          <article class="article-card article-card--small">
+            <div class="article-card__img placeholder-img" style="--tile-gradient: linear-gradient(135deg,#a8a29e,#57534e);"></div>
+            <div class="article-card__body">
+              <p class="eyebrow">Classroom</p>
+              <h3 class="article-card__title">Essential Art Room Equipment</h3>
+              <a href="#" class="link-arrow">View article <span class="icon icon-arrow" aria-hidden="true"></span></a>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       PURCHASING MADE SIMPLE
+       ========================================================= -->
+  <section class="banner-cta">
+    <div class="container banner-cta__inner">
+      <div class="banner-cta__icon"><span class="icon icon-school-outline" aria-hidden="true"></span></div>
+      <div class="banner-cta__content">
+        <p class="eyebrow">Education</p>
+        <h2 class="banner-cta__title">Purchasing Made Simple</h2>
+        <p class="banner-cta__text">Schools, colleges, universities and recognised educational establishments can apply for credit facilities and purchase using official purchase orders.</p>
+        <ul class="pill-list">
+          <li>Credit Accounts</li>
+          <li>Purchase Orders Accepted</li>
+          <li>Fast UK Delivery</li>
+          <li>Expert Product Advice</li>
+        </ul>
+      </div>
+      <a href="#" class="btn btn--accent banner-cta__btn">Learn More</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div class="footer-brand">
+      <p class="logo logo--footer">
+        TILGEAR
+        <span class="logo__sub">Educational Materials</span>
+      </p>
+      <p class="footer-brand__text">Educational materials for creative learning, design technology, art, craft and workshop use.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><span class="icon icon-facebook" aria-hidden="true"></span></a>
+        <a href="#" aria-label="Instagram"><span class="icon icon-instagram" aria-hidden="true"></span></a>
+        <a href="#" aria-label="LinkedIn"><span class="icon icon-linkedin" aria-hidden="true"></span></a>
+      </div>
+    </div>
+
+    <nav class="footer-col" aria-label="Shop">
+      <h3 class="footer-col__title">Shop</h3>
+      <ul>
+        <li><a href="#">Art Materials</a></li>
+        <li><a href="#">Craft</a></li>
+        <li><a href="#">Acrylic Sheets</a></li>
+        <li><a href="#">Workshop &amp; DT</a></li>
+      </ul>
+    </nav>
+
+    <nav class="footer-col" aria-label="Customer Services">
+      <h3 class="footer-col__title">Customer Services</h3>
+      <ul>
+        <li><a href="#">Delivery</a></li>
+        <li><a href="#">Returns</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">FAQs</a></li>
+      </ul>
+    </nav>
+
+    <nav class="footer-col" aria-label="Knowledge Centre">
+      <h3 class="footer-col__title">Knowledge Centre</h3>
+      <ul>
+        <li><a href="#">Ideas &amp; Inspiration</a></li>
+        <li><a href="#">Buying Guides</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Projects</a></li>
+      </ul>
+    </nav>
+
+    <div class="footer-col">
+      <h3 class="footer-col__title">Contact</h3>
+      <ul>
+        <li>01234 567890</li>
+        <li>sales@tilgear.co.uk</li>
+        <li>Mon&ndash;Fri, 9am&ndash;5pm</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="site-footer__bottom">
+    <div class="container site-footer__bottom-inner">
+      <p>&copy; Tilgear. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
